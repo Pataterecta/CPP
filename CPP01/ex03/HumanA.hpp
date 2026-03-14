@@ -9,11 +9,11 @@ class HumanA {
 
 	private:
 	
-	std::string bob;
-	Weapon &wea_ref;
+	std::string name;
+	Weapon &weapon;
 
 	public:
-	HumanA(std::string bob, Weapon &wea_ref);
+	HumanA(std::string name, Weapon &weapon);
 	~HumanA();
 	void attack();
 };

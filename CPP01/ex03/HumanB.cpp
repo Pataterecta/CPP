@@ -1,20 +1,20 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string jim)
+HumanB::HumanB(std::string name)
 {
-	this->jim = jim;
+	this->name = name;
 }
 
 HumanB::~HumanB(){
 
 }
 
-void	HumanB::setWeapon(Weapon &wea_ptr)
+void	HumanB::setWeapon(Weapon &weapon)
 {
-	this->wea_ptr = &wea_ptr;
+	this->weapon = &weapon;
 }
 
 void HumanB::attack()
 {
-	std::cout << this->jim << " goes and crack his leg with this " << this->wea_ptr->getType() << std::endl; 
+	std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl; 
 }
