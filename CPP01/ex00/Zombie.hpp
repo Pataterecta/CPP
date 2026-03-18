@@ -20,5 +20,6 @@ class Zombie {
 
 Zombie* newZombie(std::string name);
 void	randomChump(std::string name);
+//생성자 호출하는 외부 함수라 클래스 안에 있을 필요 x
 
 #endif

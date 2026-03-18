@@ -1,24 +1,51 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
+// int main()
+// {
+// 	{
+// 		Weapon club = Weapon("crude spiked club");
+// 		HumanA bob("Bob", club);
+// 		bob.attack();
+// 		club.setType("some other type of club");
+// 		bob.attack();
+//   }
+// 	{	
+// 		Weapon club = Weapon("crude spiked club");
+// 		HumanB jim("Jim");
+// 		jim.setWeapon(club);
+// 		jim.attack();
+// 		club.setType("some other type of club");
+// 		jim.attack();
+
+//     Weapon ultra = Weapon("super ultra man");
+// 		jim.setWeapon(ultra);
+// 		jim.attack();
+// 	}		
+// 	return 0;
+// }
+
 int main()
 {
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
 		bob.attack();
+		Weapon ultra = Weapon("super ultra man");
+		HumanA bob("Bob", ultra);
 		club.setType("some other type of club");
 		bob.attack();
   }
 	{	
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
+		jim.attack(); // without weapon
 		jim.setWeapon(club);
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
 
-    Weapon ultra = Weapon("super ultra man");
+		Weapon ultra = Weapon("super ultra man");
 		jim.setWeapon(ultra);
 		jim.attack();
 	}		

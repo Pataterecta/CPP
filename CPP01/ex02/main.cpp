@@ -22,6 +22,7 @@ int	main(void)
 	std::cout << "*first_for the memory addresses" << std::endl;
 	std::cout << "The memory address of the string variable: " << &htib << std::endl;
 	std::cout << "The memory address held by stringPTR: " << htib_ptr << std::endl;
+	std::cout << "The memory address not held by stringPTR: " << &htib_ptr << std::endl; // pas pareil
 	std::cout << "The memory address held by stringREF: " << &htib_ref << std::endl;
 	
 	std::cout << std::endl << "*second_for the values" <<std::endl;
