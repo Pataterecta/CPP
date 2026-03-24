@@ -23,27 +23,30 @@ class Fixed
 	float toFloat(void) const;
 	int toInt(void) const;
 
-	Fixed& operator>(const Fixed& val);
-	Fixed& operator<(const Fixed& val);
-	Fixed& operator>=(const Fixed& val);
-	Fixed& operator<=(const Fixed& val);
-	Fixed& operator==(const Fixed& val);
-	Fixed& operator!=(const Fixed& val);
+	bool operator>(const Fixed& val) const;
+	bool operator<(const Fixed& val) const;
+	bool operator>=(const Fixed& val) const;
+	bool operator<=(const Fixed& val) const;
+	bool operator==(const Fixed& val) const;
+	bool operator!=(const Fixed& val) const;
 
-	Fixed& operator+(const Fixed& val);
-	Fixed& operator-(const Fixed& val);
-	Fixed& operator*(const Fixed& val);
-	Fixed& operator/(const Fixed& val);
+	Fixed operator+(const Fixed& val) const; // 레퍼런스로 하면 지역 변수로 반환이니까.. 함수 끝나면 dangling ref
+	Fixed operator-(const Fixed& val) const; // 새 객체를 만들어서 반환한다
+	Fixed operator*(const Fixed& val) const;
+	Fixed operator/(const Fixed& val) const;
+
+	// Fixed operator/(const Fixed& val); 이렇게 썼다가 const 달아줌 
+	// 새로운 객체 만들어내는거랑 기존 것들 this, val 안건드리니까.. 
 
 	Fixed& operator++(); // 전위
 	Fixed operator++(int); // 후위
 	Fixed& operator--();
 	Fixed operator-- (int);
 
-	static Fixed& min(int &fixP1, int &fixP2);
-	static Fixed& min(const int &fixP1, const int &fixP2);
-	static Fixed& max(int &fixP1, int &fixP2);
-	static Fixed& max(const int &fixP1, int &fixP2);
+	static Fixed& min(Fixed& fixP1, Fixed& fixP2);
+	static const Fixed& min(const Fixed& fixP1, const Fixed& fixP2);
+	static Fixed& max(Fixed &fixP1, Fixed &fixP2);
+	static const Fixed& max(const Fixed& fixP1, const Fixed& fixP2);
 };
 std::ostream &operator<<(std::ostream &o, const Fixed &fixed);
 

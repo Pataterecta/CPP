@@ -33,7 +33,7 @@ Fixed::~Fixed()
 }
 
 
-Fixed &Fixed::operator=(const Fixed &orig)
+Fixed& Fixed::operator=(const Fixed &orig)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (!(this == &orig))
@@ -58,7 +58,7 @@ int Fixed::toInt(void)const{
 }
 //that converts the fixed-point value to an integer value.
 
-std::ostream & operator<<(std::ostream & o, const Fixed &fixed) 
+std::ostream& operator<<(std::ostream & o, const Fixed &fixed) 
 {
 	// 고정 소수점 숫자를 실수 형태(float)로 바꿔서 출력 스트림에 넣는 연산자 만들기
 	o << fixed.toFloat();
