@@ -1,6 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "Form.hpp"
 #include <iostream>
 #include <exception>
 
@@ -40,6 +41,13 @@ class Bureaucrat {
     void setGrade(int note);
     void incGrade(int note);
     void decGrade(int note);
+    void signForm(Form &f);
+    /* This function must
+    call Form::beSigned() to attempt to sign the form. If the form is signed successfully, it
+    will print something like:
+    <bureaucrat> signed <form>
+    Otherwise, it will print something like:
+    <bureaucrat> couldn’t sign <form> because <reason>. */
 };
 
 std::ostream& operator<<(std::ostream &o, const Bureaucrat &other);
