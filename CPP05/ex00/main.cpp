@@ -10,7 +10,7 @@ int main(void)
     Bureaucrat bc("happy", 12);
     try
     {
-        bc.incGrade(11);
+        bc.incValGrade(11);
         std::cout << bc << std::endl;
         Bureaucrat bc2("sad", 151);
     }
@@ -20,7 +20,7 @@ int main(void)
     }
     try
     {
-        bc.incGrade(11);
+        bc.incValGrade(11);
         std::cout << bc << std::endl;
     }
     catch(const std::exception& e)
@@ -30,7 +30,7 @@ int main(void)
     try
     {
         Bureaucrat bc3("sosohappy", 1);
-        bc3.decGrade(100);
+        bc3.decValGrade(100);
         std::cout << bc3;
     }
     catch(const std::exception& e)
@@ -40,11 +40,31 @@ int main(void)
     try
     {
         Bureaucrat bc4("lol", -1);
-        bc4.decGrade(100);
+        bc4.decValGrade(100);
         std::cout << bc4;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
+    Bureaucrat bc4("crazy", 148);
+    try
+    {
+        bc4.incGrade();
+        std::cout << bc4;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        bc4.decGrade();
+        std::cout << bc4;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    return (0);
 }

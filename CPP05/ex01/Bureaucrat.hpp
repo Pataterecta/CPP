@@ -39,9 +39,11 @@ class Bureaucrat {
     const std::string& getName() const;
     int getGrade() const;
     void setGrade(int note);
-    void incGrade(int note);
-    void decGrade(int note);
-    void signForm(Form &f);
+    void incGrade(void);
+    void decGrade(void);
+    void incValGrade(int note);
+    void decValGrade(int note);
+    void signForm(Form &f) const; // this 를 바꾸는게 아니라 다른 객체면 const okidoki 임! 이것 때문에 헷갈렸음
     /* This function must
     call Form::beSigned() to attempt to sign the form. If the form is signed successfully, it
     will print something like:

@@ -47,14 +47,28 @@ void Bureaucrat::setGrade(int note)
     
 }
 
-void Bureaucrat::incGrade(int note)
+void Bureaucrat::incGrade(void)
+{
+    if (this->_grade - 1 < 1)
+        throw GradeTooHighException();
+    _grade = _grade - 1;
+}
+
+void Bureaucrat::decGrade(void)
+{
+    if (this->_grade + 1 > 150)
+        throw GradeTooLowException();
+    _grade = _grade + 1;
+}
+
+void Bureaucrat::incValGrade(int note)
 {
     if (this->_grade - note < 1)
         throw GradeTooHighException();
     _grade = _grade - note;
 }
 
-void Bureaucrat::decGrade(int note)
+void Bureaucrat::decValGrade(int note)
 {
     if (this->_grade + note > 150)
         throw GradeTooLowException();
@@ -68,3 +82,9 @@ std::ostream& operator<<(std::ostream &o, const Bureaucrat &other)
 }
 // 멤버 연산자면 안돼 왜냐면 왼쪽 피연산자가 그 클래스일 때만 호출되기 때문임!
 // 그래서 이것 땜시 getter 가 필요한거임.. 멤버 함수가 아니라서..
+
+void Bureaucrat::signForm(Form &f) const
+{
+    if (f.)
+    std::cout << _name << " signed " << f.getName();
+}

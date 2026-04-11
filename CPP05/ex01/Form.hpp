@@ -14,13 +14,19 @@ class Form {
     const int _gradeToE;
 
     public:
+    Form(const std::string name, int gradeS, int gradeE);
+    Form(const Form &other);
+    Form& operator=(const Form &other);
+    ~Form(void);
 
-    void beSigned(Bureaucrat &bc);
+    const std::string& getName() const;
+
+    void beSigned(const Bureaucrat &bc);
     /*it changes the form’s status to signed if the bureaucrat’s grade is high enough
     (greater than or equal to the required one). Remember, grade 1 is higher than grade 2.
     If the grade is too low, throw a Form::GradeTooLowException */
 
-      class GradeTooHighException : public std::exception
+    class GradeTooHighException : public std::exception
     {
         public: 
         const char* what() const throw(){
