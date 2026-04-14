@@ -1,6 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "AForm.hpp"
 #include <iostream>
 #include <exception>
 
@@ -43,6 +44,15 @@ class Bureaucrat {
     void decGrade(void);
     void incValGrade(int note);
     void decValGrade(int note);
+    void signForm(AForm &f) const; // this 를 바꾸는게 아니라 다른 객체면 const okidoki 임! 이것 때문에 헷갈렸음
+    /* This function must
+    call AForm::beSigned() to attempt to sign the AForm. If the AForm is signed successfully, it
+    will print something like:
+    <bureaucrat> signed <AForm>
+    Otherwise, it will print something like:
+    <bureaucrat> couldn’t sign <AForm> because <reason>. */
+
+    void executeForm(AForm const & form) const;
 };
 
 std::ostream& operator<<(std::ostream &o, const Bureaucrat &other);

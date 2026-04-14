@@ -6,66 +6,45 @@
 
 int main(void)
 {
+    Form f("construction approval", 99, 50);
+    Form f0("happy cure contract", 1, 1);
+    Form contracto("intern contract", 150, 150);
+    try
+    {
+        Form contratito("tosign", 999, 999);
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    Bureaucrat bc("happy", 12);
+    // try
+    // {
+        Bureaucrat bc("sosohappy", 1);
+        bc.decValGrade(100);
+        std::cout << bc;
+        bc.signForm(f0);
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
+    // just to show that as try and catch is inside of the function, it doesnt need 
+    // to be on the main caller side
+    // but it can try and catch constructor out range cases
     try
     {
-        bc.incValGrade(11);
-        std::cout << bc << std::endl;
-        Bureaucrat bc2("sad", 151);
+        Bureaucrat bc2("fonctionnaire", 151);
+        bc2.signForm(f);
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    try
-    {
-        bc.incValGrade(11);
-        std::cout << bc << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        Bureaucrat bc3("sosohappy", 1);
-        bc3.decValGrade(100);
-        std::cout << bc3;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        Bureaucrat bc4("lol", -1);
-        bc4.decValGrade(100);
-        std::cout << bc4;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    Bureaucrat bc4("crazy", 148);
-    try
-    {
-        bc4.incGrade();
-        std::cout << bc4;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        bc4.decGrade();
-        std::cout << bc4;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    Bureaucrat bc3("intern", 150);
+    std::cout << f;
+    bc3.signForm(f);
+    bc3.signForm(contracto);
     return (0);
 }
 

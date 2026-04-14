@@ -1,5 +1,10 @@
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat() : _name("default_bureaucrat"), _grade(150)
+{
+    // i can actually just put the prototype only on the .hpp and not define it but for the canonical form..
+}
+
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
     if (grade < 1)
@@ -26,6 +31,8 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 Bureaucrat::~Bureaucrat()
 {   
 }
+
+//getters
 
 const std::string& Bureaucrat::getName() const
 {
@@ -70,9 +77,11 @@ void Bureaucrat::incValGrade(int note)
 
 void Bureaucrat::decValGrade(int note)
 {
+    std::cout << "grade before(btw this function is just to faciliate): " << _grade << std::endl;
     if (this->_grade + note > 150)
         throw GradeTooLowException();
     _grade = _grade + note;
+    std::cout << "grade after: " << _grade << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &o, const Bureaucrat &other)
@@ -85,6 +94,12 @@ std::ostream& operator<<(std::ostream &o, const Bureaucrat &other)
 
 void Bureaucrat::signForm(Form &f) const
 {
-    if (f.)
-    std::cout << _name << " signed " << f.getName();
+    try{
+    f.beSigned(*this);
+    if (f.getSigned() == true)
+        std::cout << _name << " signed " << f.getName() << "." << std::endl;
+    }
+    catch (const std::exception &e){
+    std::cout << _name << " couldnt't sign " << f.getName() << " because " << e.what() << "." << std::endl;
+    }
 }

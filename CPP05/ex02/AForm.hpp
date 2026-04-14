@@ -1,11 +1,11 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AForm_HPP
+#define AForm_HPP
 
 #include <iostream>
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 
     private:
 
@@ -15,11 +15,11 @@ class Form {
     const int _gradeToE;
 
     public:
-    Form();
-    Form(const std::string name, int gradeS, int gradeE);
-    Form(const Form &other);
-    Form& operator=(const Form &other);
-    ~Form(void);
+    AForm();
+    AForm(const std::string name, int gradeS, int gradeE);
+    AForm(const AForm &other);
+    AForm& operator=(const AForm &other);
+    ~AForm(void);
 
     const std::string& getName() const;
     bool getSigned() const;
@@ -27,9 +27,11 @@ class Form {
     int getGradeE() const;
 
     void beSigned(const Bureaucrat &bc);
-    /*it changes the form’s status to signed if the bureaucrat’s grade is high enough
+    /*it changes the AForm’s status to signed if the bureaucrat’s grade is high enough
     (greater than or equal to the required one). Remember, grade 1 is higher than grade 2.
-    If the grade is too low, throw a Form::GradeTooLowException */
+    If the grade is too low, throw a AForm::GradeTooLowException */
+
+    virtual void execute(Bureaucrat const & executor) const = 0;
 
     class GradeTooHighException : public std::exception
     {
@@ -45,10 +47,17 @@ class Form {
             return "Grade too low";
         }
     };
+    class NoSignE : public std::exception
+    {
+        public:
+        const char* what() const throw(){
+            return "!!!Not Signed FORM!!!";
+        }
+    };
 
 
 };
 
-std::ostream& operator<<(std::ostream &o, const Form &other);
+std::ostream& operator<<(std::ostream &o, const AForm &other);
 
 #endif

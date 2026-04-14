@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat() : _name("default_bureaucrat"), _grade(150)
 {
-    // i can actually just put the prototype only on the .hpp and not define it but for the canonical form..
+    // i can actually just put the prototype only on the .hpp and not define it but for the canonical AForm..
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
@@ -31,6 +31,8 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 Bureaucrat::~Bureaucrat()
 {   
 }
+
+//getters
 
 const std::string& Bureaucrat::getName() const
 {
@@ -75,9 +77,11 @@ void Bureaucrat::incValGrade(int note)
 
 void Bureaucrat::decValGrade(int note)
 {
+    std::cout << "grade before(btw this function is just to faciliate): " << _grade << std::endl;
     if (this->_grade + note > 150)
         throw GradeTooLowException();
     _grade = _grade + note;
+    std::cout << "grade after: " << _grade << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &o, const Bureaucrat &other)
@@ -87,3 +91,27 @@ std::ostream& operator<<(std::ostream &o, const Bureaucrat &other)
 }
 // 멤버 연산자면 안돼 왜냐면 왼쪽 피연산자가 그 클래스일 때만 호출되기 때문임!
 // 그래서 이것 땜시 getter 가 필요한거임.. 멤버 함수가 아니라서..
+
+void Bureaucrat::signForm(AForm &f) const
+{
+    try{
+    f.beSigned(*this);
+    if (f.getSigned() == true)
+        std::cout << _name << " signed " << f.getName() << "." << std::endl;
+    }
+    catch (const std::exception &e){
+    std::cout << _name << " couldnt't sign " << f.getName() << " because " << e.what() << "." << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const & form) const
+{
+    try{
+        form.execute(*this);
+        std::cout << _name << " executed " << form.getName() << "." << std::endl;
+    }
+    catch (const std::exception &e){
+        std::cout << _name << " couldnt't execute " << form.getName() << " because " << e.what() << "." << std::endl;
+    }
+}
+
