@@ -18,22 +18,39 @@ Intern& Intern::operator=(const Intern &src){
     return (*this);
 }
 
-// if not in this way then put statics in Intern's private 
-AForm* Intern::makeForm(const std::string formname, const std::string target){
+AForm* Intern::newPForm(const std::string &target){
+        return new PresidentialPardonForm(target);
+}
 
-    typedef AForm* (*mF)(const std::string); // AForm* 을 반환하고 std::string 을 인자로 받는 함수의 포인터 타입 mF 는 함수 포인터의 타입 이름
+AForm* Intern::newRForm(const std::string &target){
+        return new RobotomyRequestForm(target);
+}
+
+AForm* Intern::newSForm(const std::string &target){
+    return new ShrubberyCreationForm(target);
+}
+
+// put statics in Intern's private or if not in each class 
+AForm* Intern::makeForm(const std::string &formname, const std::string &target){
+
+    typedef AForm* (*mF)(const std::string&); // AForm* 을 반환하고 std::string 을 인자로 받는 함수의 포인터 타입 mF 는 함수 포인터의 타입 이름
     // 이 타입과 함수가 일치해야 함
     mF fps[3] = 
     {
         // 함수 포인터 3개 배열, 각각은 함수의 주소 즉 포인터 값이 들어간다
-        &PresidentialPardonForm::makeForm, &RobotomyRequestForm::makeForm, &ShrubberyCreationForm::makeForm
+        // &PresidentialPardonForm::beForm, &RobotomyRequestForm::beForm, &ShrubberyCreationForm::beForm
+        &Intern::newPForm, &Intern::newRForm, &Intern::newSForm
     };
     std::string names[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
     for (int i = 0; i < 3; i++)
     {
         if (names[i] == formname)
+        {   
+            std::cout << "Intern creates " << formname << "." << std::endl;
             return fps[i](target); // fps[i] 가 가리키는 함수 주소로 가서 target 넣고 실행
+        }
     }
+    // putain met une exception baboseyo?
     return 0;
 }
 

@@ -8,7 +8,9 @@ int main(void)
 {
     Form f("construction approval", 99, 50);
     Form f0("happy cure contract", 1, 1);
+    Form ra("random approval", 150, 150);
     Form contracto("intern contract", 150, 150);
+    std::cout << contracto;
     try
     {
         Form contratito("tosign", 999, 999);
@@ -24,6 +26,9 @@ int main(void)
         bc.decValGrade(100);
         std::cout << bc;
         bc.signForm(f0);
+        bc.signForm(ra);
+        std::cout << f0;
+        std::cout << ra;
     // }
     // catch(const std::exception& e)
     // {
@@ -44,7 +49,9 @@ int main(void)
     Bureaucrat bc3("intern", 150);
     std::cout << f;
     bc3.signForm(f);
+    std::cout << f;
     bc3.signForm(contracto);
+    std::cout << contracto;
     return (0);
 }
 

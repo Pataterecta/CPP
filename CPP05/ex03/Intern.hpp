@@ -11,6 +11,9 @@ class ShrubberyCreationForm;
 class Intern
 {
     private:
+    static AForm* newPForm(const std::string &target);
+    static AForm* newRForm(const std::string &target);
+    static AForm* newSForm(const std::string &target);
     
     public:
     Intern();
@@ -18,7 +21,7 @@ class Intern
     Intern& operator=(const Intern &src);
     ~Intern();
 
-    AForm* makeForm(const std::string formname, const std::string target);
+    AForm* makeForm(const std::string &formname, const std::string &target);
 
 };
 

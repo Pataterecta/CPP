@@ -44,9 +44,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
     plantTree();
 }
 
-AForm* ShrubberyCreationForm::makeForm(const std::string target){
-    return new ShrubberyCreationForm(target);
-}
+// AForm* ShrubberyCreationForm::beForm(const std::string &target){
+//     return new ShrubberyCreationForm(target);
+// }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){
 

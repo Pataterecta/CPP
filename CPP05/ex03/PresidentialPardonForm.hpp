@@ -19,7 +19,7 @@ class PresidentialPardonForm : public AForm // 상속은 어쨌든 이렇지..
 
     void execute(Bureaucrat const & executor) const;
 
-    static AForm* makeForm(const std::string target);
+    // static AForm* beForm(const std::string &target);
 
     //!!!!! no need AForm level rule!!!!
     // class GradeTooHighException : public std::exception

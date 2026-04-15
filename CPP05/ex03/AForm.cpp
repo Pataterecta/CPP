@@ -75,6 +75,6 @@ std::ostream& operator<<(std::ostream &o, const AForm &other)
         res = "yes";
     else
         res = "no";
-    o << other.getName() << ", grade needed to sign " << other.getGradeS() << ", grade needed to execute " << other.getGradeE() << "is it signed " << res << " ." << std::endl;
+    o << other.getName() << ", grade needed to sign " << other.getGradeS() << ", grade needed to execute " << other.getGradeE() << " is it signed " << res << " ." << std::endl;
     return (o);
 }

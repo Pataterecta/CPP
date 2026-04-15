@@ -70,6 +70,11 @@ void AForm::beSigned(const Bureaucrat &bc)
 
 std::ostream& operator<<(std::ostream &o, const AForm &other)
 {
-    o << other.getName() << ", grade needed to sign " << other.getGradeS() << ", grade needed to execute " << other.getGradeE() << "." << std::endl;
+    std::string res;
+    if (other.getSigned())
+        res = "yes";
+    else
+        res = "no";
+    o << other.getName() << ", grade needed to sign " << other.getGradeS() << ", grade needed to execute " << other.getGradeE() << " is it signed " << res << " ." << std::endl;
     return (o);
 }

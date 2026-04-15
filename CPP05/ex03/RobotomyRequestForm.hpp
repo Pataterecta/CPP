@@ -21,7 +21,7 @@ class RobotomyRequestForm : public AForm
 
     void execute(Bureaucrat const & executor) const;
     
-    static AForm* makeForm(const std::string target);
+    // static AForm* beForm(const std::string &target);
 };
 
 #endif

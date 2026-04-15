@@ -34,9 +34,9 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
     result == 1 ? (std::cout << " has been robotomized." << std::endl) : (std::cout << "'s robotomy failed." <<std::endl);
 }
 
-AForm* RobotomyRequestForm::makeForm(const std::string target){
-    return new RobotomyRequestForm(target);
-}
+// AForm* RobotomyRequestForm::beForm(const std::string &target){
+//     return new RobotomyRequestForm(target);
+// }
 
 
 RobotomyRequestForm::~RobotomyRequestForm(){
