@@ -2,7 +2,10 @@
 #define SCALARCONVERTER_HPP
 
 #include <cstdlib>
+#include <cmath>
 #include <iostream>
+#include <limits>
+#include <sstream>
 
 class ScalarConvert {
 
@@ -20,11 +23,18 @@ class ScalarConvert {
         bool isInf;
         bool isValid;
 
+        bool wantSomeErrno;
+
+        int afterPLen;
+
         double val;
     };
 
     static void litConvert(const std::string& rep, struct ScalarConvert::branchP&);
-
+    static void printChar(struct ScalarConvert::branchP&);
+    static void printInt(struct ScalarConvert::branchP&);
+    static void printFloat(struct ScalarConvert::branchP&);
+    static void printDouble(struct ScalarConvert::branchP&);
     static void printLits(struct ScalarConvert::branchP&);
 
     public:

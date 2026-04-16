@@ -1,3 +1,76 @@
+good example to check : 
+bash-5.2$ ./convert 42.0000020000000000000000f
+char: '*'
+int: 42
+float: 42.0f
+double: 42.0
+
+error case : 
+    double x = s.val;
+    double div = 0.0;
+    double imRound;
+    imRound = std::modf(x, &div);
+    if (imRound == 0){
+        std::cout << "float: " << div << ".0f\n";
+        return ;
+    }
+    else{
+        float f_val = static_cast<float>(s.val);
+        std::cout << "float: " << f_val << "f\n";
+    }
+
+in this case result : 
+
+
+➜  ex00 git:(main) ✗ ./convert 42.0f
+char: '*'
+int: 42
+float: 42.0f
+double: 42.0
+➜  ex00 git:(main) ✗ ./convert 42.00f
+char: '*'
+int: 42
+float: 42.0f
+double: 42.0
+➜  ex00 git:(main) ✗ ./convert 42.000000f
+char: '*'
+int: 42
+float: 42.0f
+double: 42.0
+➜  ex00 git:(main) ✗ ./convert 42.000020f
+char: '*'
+int: 42
+float: 42f
+double: 42
+➜  ex00 git:(main) ✗ ./convert 42.00002f 
+char: '*'
+int: 42
+float: 42f
+double: 42
+➜  ex00 git:(main) ✗ ./convert 42.000020f
+char: '*'
+int: 42
+float: 42f
+double: 42
+➜  ex00 git:(main) ✗ 42.022
+bash: 42.022: command not found...
+➜  ex00 git:(main) ✗ ./convert 42.022
+char: '*'
+int: 42
+float: 42.022f
+double: 42.022
+➜  ex00 git:(main) ✗ ./convert 42.0220f
+char: '*'
+int: 42
+float: 42.022f
+double: 42.022
+
+에러케이스!!!!!
+
+modf 소수점 분리하기
+
+https://cplusplus.com/reference/limits/numeric_limits/ 
+
 https://koor.fr/C/cstdlib/strtod.wp
 
 // https://stackoverflow.com/questions/19090328/protected-constructor-to-make-base-class-not-instantiable
