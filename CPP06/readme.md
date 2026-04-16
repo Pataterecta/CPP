@@ -1,3 +1,5 @@
+https://koor.fr/C/cstdlib/strtod.wp
+
 // https://stackoverflow.com/questions/19090328/protected-constructor-to-make-base-class-not-instantiable
 // https://www.geekinterview.com/question_details/21355
 // NOT correct since a class with a private constructor can be instantiated through a static member function of the class. Try out the following code:
