@@ -14,7 +14,7 @@ ScalarConvert& ScalarConvert::operator=(const ScalarConvert& orig){
     std::abort(); // means I don't even want to represent it as its doable
 }
 
-void ScalarConvert::printChar(struct ScalarConvert::branchP& s){
+static void printChar(struct branchP& s){
     if (!s.isValid || s.isNan || s.isInf){
         std::cout << "char: impossible\n";
         return ;
@@ -34,7 +34,7 @@ void ScalarConvert::printChar(struct ScalarConvert::branchP& s){
     }
 }
 
-void ScalarConvert::printInt(struct ScalarConvert::branchP& s){
+static void printInt(struct branchP& s){
     if (!s.isValid || s.isNan || s.isInf){
         std::cout << "int: impossible\n";
         return ;
@@ -47,7 +47,7 @@ void ScalarConvert::printInt(struct ScalarConvert::branchP& s){
     std::cout << "int: " << s_int << std::endl;
 }
 
-void ScalarConvert::printFloat(struct ScalarConvert::branchP& s) {
+static void printFloat(struct branchP& s) {
     if (!s.isValid) {
         std::cout << "float: impossible\n";
         return;
@@ -75,7 +75,7 @@ void ScalarConvert::printFloat(struct ScalarConvert::branchP& s) {
     //     std::cout << "float: " << f_val << "f\n";
 }
 
-void ScalarConvert::printDouble(struct ScalarConvert::branchP& s){
+static void printDouble(struct branchP& s){
     if (!s.isValid){
         std::cout << "double: impossible\n";
         return ;
@@ -103,7 +103,7 @@ void ScalarConvert::printDouble(struct ScalarConvert::branchP& s){
     // }
 }
 
-void ScalarConvert::printLits(struct ScalarConvert::branchP& s){
+static void printLits(struct branchP& s){
 
     printChar(s);
     printInt(s);
@@ -113,7 +113,7 @@ void ScalarConvert::printLits(struct ScalarConvert::branchP& s){
 }
 
 
-void ScalarConvert::litConvert(const std::string& rep, struct ScalarConvert::branchP& s){
+static void litConvert(const std::string& rep, struct branchP& s){
     // 이거 아님 반환값임.. const char* end_ptr = rep.c_str() + rep.size();
 
     s.isChar = false;
@@ -123,6 +123,7 @@ void ScalarConvert::litConvert(const std::string& rep, struct ScalarConvert::bra
     s.isValid = false;
     s.wantSomeErrno = false; // just to debug etc if we want to check if its pure overflow detect
     s.val = 0.0;
+    errno = 0;
 
     char* end_ptr;
     end_ptr = NULL;

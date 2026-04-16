@@ -15,7 +15,12 @@ class ScalarConvert {
     ScalarConvert& operator=(const ScalarConvert& orig);
     ~ScalarConvert();
 
-    struct branchP{
+    public:
+    static void doConvert(const std::string& rep);
+
+};
+
+struct branchP{
 
         bool isF;
         bool isChar;
@@ -29,18 +34,6 @@ class ScalarConvert {
 
         double val;
     };
-
-    static void litConvert(const std::string& rep, struct ScalarConvert::branchP&);
-    static void printChar(struct ScalarConvert::branchP&);
-    static void printInt(struct ScalarConvert::branchP&);
-    static void printFloat(struct ScalarConvert::branchP&);
-    static void printDouble(struct ScalarConvert::branchP&);
-    static void printLits(struct ScalarConvert::branchP&);
-
-    public:
-    static void doConvert(const std::string& rep);
-
-};
 
 #endif
 
