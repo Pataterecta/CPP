@@ -9,7 +9,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 #-pedantic 
 
 SRCS = 	main.cpp \
-		ScalarConverter.cpp
+		Serializer.cpp
 	
 
 OBJS := $(SRCS:.cpp=.o)

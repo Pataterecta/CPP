@@ -22,18 +22,18 @@ class ScalarConvert {
 
 struct branchP{
 
-        bool isF;
-        bool isChar;
-        bool isNan;
-        bool isInf;
-        bool isValid;
+    bool isF;
+    bool isChar;
+    bool isNan;
+    bool isInf;
+    bool isValid;
 
-        bool wantSomeErrno;
+    bool wantSomeErrno;
 
-        int afterPLen;
+    int afterPLen;
 
-        double val;
-    };
+    double val;
+};
 
 #endif
 

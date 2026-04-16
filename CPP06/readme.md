@@ -1,3 +1,7 @@
+https://hwan-shell.tistory.com/219
+
+-------ex00
+
 good example to check : 
 bash-5.2$ ./convert 42.0000020000000000000000f
 char: '*'
