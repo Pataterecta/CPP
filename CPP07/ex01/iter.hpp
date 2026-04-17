@@ -5,8 +5,8 @@
 
 extern int cry;
 
-template <typename T>
-void iter(T *array, const int len, void(*func)(T&)) // im so general
+template <typename T, typename U>
+void iter(T *array, const int len, U(*func)(T&)) // im so general
 {
     for (int i = 0; i < len; i++){
         func(array[i]);
@@ -14,8 +14,8 @@ void iter(T *array, const int len, void(*func)(T&)) // im so general
     }
 }
 
-// template <typename T>
-// void iter(T *array, const int len, void(*func)(const T&)) // need to think of its use
+// template <typename T, typename U>
+// void iter(T *array, const int len, U(*func)(const T&)) // need to think of its use
 // {
 //     for (int i = 0; i < len; i++){
 //         func(array[i]);
@@ -26,8 +26,8 @@ void iter(T *array, const int len, void(*func)(T&)) // im so general
 // 1 converts this cuz const function itself can be used in 1st case
 // compile error ambiguos overloading
 
-template <typename T>
-void iter(const T *array, const int len, void(*func)(const T&)) // no value changing function and value
+template <typename T, typename U>
+void iter(const T *array, const int len, U(*func)(const T&)) // no value changing function and value
 {
      for (int i = 0; i < len; i++){
         func(array[i]);

@@ -18,9 +18,15 @@ void random_cried(const int &n)
     cry++;
 }
 
-void zero_waste(int &n)
+// void zero_waste(int &n)
+// {
+//     n = 0;
+// }
+
+const std::string& zero_waste(int &n) // typename U checked
 {
     n = 0;
+    return "happy";
 }
 
 int main(void)
@@ -39,5 +45,7 @@ int main(void)
     iter(array, len, zero_waste);
     std::cout << array[0] << ", " << array[1] << " and then " << array[2] << std::endl;
     // same uncomment the 1st iter function so to check which is called :)
+    std::cout << "----test-----" << std::endl;
+    
     return (0);
 }
