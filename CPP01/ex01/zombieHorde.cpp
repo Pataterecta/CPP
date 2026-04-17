@@ -2,6 +2,7 @@
 
 Zombie* zombieHorde(int N, std::string name)
 {
+	// vaut mieux proteger cette valeur de N pas de moins.. pas de overflow..
 	Zombie* _firstBorn = new Zombie[N];
 	
 	for (int i = 0; i < N; i++)
