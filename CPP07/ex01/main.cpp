@@ -11,23 +11,34 @@ void random_cried(int &n)
     cry++;
 }
 
-void random_cried(const int &n)
+void random_cried2(const int &n)
 {
     std::cout << "I const cried: " << n << " times." << std::endl;
     std::cout << "idx: " << cry << std::endl;
     cry++;
 }
 
-// void zero_waste(int &n)
+// for overloading test
+
+// void random_cried(const int &n)
 // {
-//     n = 0;
+//     std::cout << "I const cried: " << n << " times." << std::endl;
+//     std::cout << "idx: " << cry << std::endl;
+//     cry++;
 // }
 
-const std::string& zero_waste(int &n) // typename U checked
+void zero_waste(int &n)
 {
     n = 0;
-    return "happy";
 }
+
+// no use
+
+// const std::string& zero_waste(int &n) // typename U checked but only for the error message
+// {
+//     n = 0;
+//     return "happy"; if there should have been a return
+// }
 
 int main(void)
 {
@@ -39,8 +50,10 @@ int main(void)
     std::cout << "----test-----" << std::endl;
     const int array2[] = {9, 99, 999, 9999};
     const int len2 = 4;
-    iter(array2, len2, random_cried); 
-    // overloading test, for both case, uncomment debug const called to see better
+    // iter(array2, len2, random_cried); // for commented overloading iter
+    iter(array2, len2, random_cried2);
+
+    // overloading test, for both case when using (1) (2), uncomment debug const called blah to see better
     std::cout << "----test-----" << std::endl;
     iter(array, len, zero_waste);
     std::cout << array[0] << ", " << array[1] << " and then " << array[2] << std::endl;
