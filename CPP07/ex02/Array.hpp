@@ -48,8 +48,8 @@ class Array
         if (this != &orig)
         {
             Array temp(orig); // deep copy first
-            std::swap(this->_data, temp._data); // swap adress
-            std::swap(this->_size, temp._size); // without "this->" then compile error, i guess cuz not template defined function ?
+            std::swap(_sth, temp._sth); // swap adress
+            std::swap(_howmany, temp._howmany);
         }
         return (*this);
     }
