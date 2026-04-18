@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <exception>
 #include <limits>
+#include <utility>
 
 template <typename T>
 class Array
@@ -139,3 +140,8 @@ class Array
 // so Im doing the value initialization : by "initializing it" "by default" and not doint the "default initialization"
 // https://stackoverflow.com/questions/8106016/c-default-initialization-and-value-initialization-which-is-which-which-is-ca
 // https://en.cppreference.com/cpp/language/default_initialization
+
+ /** @file bits/move.h
+ *  This is an internal header file, included by other library headers.
+ *  Do not attempt to use it directly. @headername{utility}
+ */
