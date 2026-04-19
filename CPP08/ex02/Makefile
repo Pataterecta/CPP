@@ -1,4 +1,4 @@
-NAME = sth
+NAME = MS
 
 CC = c++
 

@@ -1,4 +1,4 @@
-NAME = sth
+NAME = Span
 
 CC = c++
 
@@ -8,7 +8,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 #-g3 -fsanitize=address,undefined
 #-pedantic 
 
-SRCS = 	main.cpp
+SRCS = 	main.cpp \
+		Span.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 

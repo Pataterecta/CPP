@@ -20,6 +20,7 @@ class Array
         // create an empty array
     }
 
+    // explicit Array(unsigned int n) 
     Array(unsigned int n) 
     {
         // an array of n elements initialized
@@ -80,8 +81,9 @@ class Array
         // return (*this);
     
 
-    T& operator[](unsigned int idx) // const Array<int> x; x[0] = 99; 쓰기도
+    T& operator[](unsigned int idx) // x; x[0] = 99; 쓰기도
     {
+        std::cout << "can change the value op[] called" << std::endl;
         if (idx >= _howmany)
             throw IIOB();
         return _sth[idx];
@@ -89,6 +91,7 @@ class Array
 
     const T& operator[](unsigned int idx) const // const Array<int> b; b[0] 읽기만
     {
+        std::cout << "can NOOOOT change the value op[] called" << std::endl;
         if (idx >= _howmany)
             throw IIOB();
         return _sth[idx];
@@ -145,3 +148,22 @@ class Array
  *  This is an internal header file, included by other library headers.
  *  Do not attempt to use it directly. @headername{utility}
  */
+
+// not relevant info    
+// T& operator [](int idx) {
+//         return TheArray[idx];
+//     }
+
+//     T operator [](int idx) const {
+//         return TheArray[idx];
+//     }
+// Array<> intArray;
+// intArray[1]; //calls T& operator[]
+
+// const Array<> constArray;
+// constArray[1]; //calls T operator[]
+
+// If you remove the const from T operator[], 
+// you get an error because the member functions 
+// cannot have the same const-qualification and parameters 
+// as there would be no way to select between them.

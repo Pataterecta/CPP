@@ -1,4 +1,4 @@
-NAME = sth
+NAME = EF
 
 CC = c++
 
