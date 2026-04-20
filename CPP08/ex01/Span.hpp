@@ -16,7 +16,7 @@ class Span
     public:
 
     Span();
-    Span(int N); // cant do unsigned int
+    Span(int N); // cant do unsigned int // its just a conversion.. not functions fault so put unsigned int(par le conseil du correcteur)
     Span(const Span& orig);
     Span& operator=(const Span& orig);
     ~Span();

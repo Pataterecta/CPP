@@ -43,9 +43,9 @@ int main()
     std::list<int> listito;
     listito.push_back(5);
     listito.push_back(17);
-    std::cout << listito.front() << std::endl;
+    std::cout << listito.back() << std::endl;
     listito.pop_back();
-    std::cout << mstack.size() << std::endl;
+    std::cout << listito.size() << std::endl;
     listito.push_back(3);
     listito.push_back(5);
     listito.push_back(737);
@@ -77,3 +77,5 @@ int main()
 
     return 0;
 }
+
+// do some more test baboya
