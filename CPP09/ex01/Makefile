@@ -8,8 +8,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 #-g3 -fsanitize=address,undefined
 #-pedantic 
 
-SRCS = 	main.cpp
-# 		RPN.cpp
+SRCS = 	main.cpp \
+		RPN.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 

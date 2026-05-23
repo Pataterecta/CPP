@@ -2,22 +2,21 @@
 #include <list>
 #include <iostream>
 
-// int main(int ac, char **av)
-// {
-//     if (ac != 2)
-//         return (0);
-    
-//     return (0);
-// }
-
-int main(void)
+int main(int ac, char **av)
 {
-    char array[] = {'9', '8', '*'};
-    std::list<char> L(array, array + 3);
-    std::cout << *(L.begin()) << std::endl;
+    if (ac != 2)
+    {
+        std::cerr << "Error\n";
+        return (0);
+    }
 
+    RPN r;
+
+    r.parseCal(av[1]);
+    
     return (0);
 }
+
 
 // 스트링으로 받는다 파싱을 한다.. 
 // 괄호나 소수는 처리 안해도 된다
